@@ -1,0 +1,22 @@
+{
+    "name": "babanesma/data-structures",
+    "description": "Data Structures",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adham Saad",
+            "email": "adham.sa3d@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Babanesma\\": "src/"}
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    },
+    "scripts": {
+        "test" : "phpunit ./tests --coverage-html ./build/coverage --coverage-clover=./build/coverage-clover.xml",
+        "test-no-coverage" : "phpunit ./tests --no-coverage"
+    }
+}
