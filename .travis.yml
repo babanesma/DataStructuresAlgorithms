@@ -9,10 +9,12 @@ php:
 install:
 - travis_retry composer install --no-interaction --no-suggest
 
-# Testing the app (see phpunit.xml)
+# Testing the app
 script:
-- composer test-no-coverage
+- composer test
 
+after_success:
+- bash <(curl -s https://codecov.io/bash) -f ./build/coverage-clover.xml 
 
 # Monitor only these branches
 branches:
