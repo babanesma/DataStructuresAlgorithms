@@ -4,20 +4,10 @@ namespace Babanesma\DataStructures\LinkedList;
 
 class Node
 {
-    /**
-     * @var object
-     */
-    protected $label;
-
-    /**
-     * @var Node
-     */
-    protected $next;
-
-    public function __construct($label, Node $next = null)
-    {
-        $this->label = $label;
-        $this->next = $next;
+    public function __construct(
+        protected mixed $label,
+        protected Node|null $next = null
+    ) {
     }
 
     public function setLabel($label)
@@ -43,6 +33,6 @@ class Node
 
     public function __toString(): string
     {
-        return '[' . (string) $this->label . '] --> ' ;
+        return '[' . (string) $this->label . '] --> ';
     }
 }

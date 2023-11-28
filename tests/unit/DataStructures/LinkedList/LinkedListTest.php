@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class LinkedListTest extends TestCase
 {
-
     public function testConstruct()
     {
         $ll = new LinkedList();
@@ -17,7 +16,7 @@ class LinkedListTest extends TestCase
         $this->assertEquals(null, $ll->getTail());
     }
 
-    public function provideSimpleLinkedList()
+    public static function provideSimpleLinkedList()
     {
         $ll = new LinkedList();
 

@@ -1,17 +1,11 @@
 <?php
 
-class Test
-{
-    protected $t;
-
-    public function __construct($t)
-    {
-        $this->t = $t;
-    }
-}
-$a = new Test(1);
-$b = new Test(2);
-$c = new Test(3);
+$a = new stdClass();
+$a->t = 1;
+$b = new stdClass();
+$b->t = 2;
+$c = new stdClass();
+$c->t = 3;
 
 return [
     'insertData' => [

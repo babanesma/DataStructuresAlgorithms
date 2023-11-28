@@ -2,32 +2,54 @@
 
 namespace Babanesma\DataStructures\LinkedList;
 
-class DoublyNode extends Node
+class DoublyNode
 {
-    /**
-     * @var Node
-     */
-    protected $prev;
+    protected int $size;
 
-    public function __construct($label, Node $next = null, Node $prev = null)
-    {
-        parent::__construct($label, $next);
-        $this->prev = $prev;
+    public function __construct(
+        protected mixed $label,
+        protected DoublyNode|null $next = null,
+        protected DoublyNode|null $prev = null
+    ) {
+        $this->size = 0;
     }
 
-    public function setPrev(Node $prev = null): self
+    public function setLabel($label)
+    {
+        $this->label = $label;
+        return $this;
+    }
+
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+
+    public function setPrev(DoublyNode|null $prev = null): self
     {
         $this->prev = $prev;
         return $this;
     }
 
-    public function getPrev(): Node
+    public function getPrev(): DoublyNode|null
     {
         return $this->prev;
     }
 
+    public function setNext(DoublyNode|null $next = null): self
+    {
+        $this->next = $next;
+        return $this;
+    }
+
+    public function getNext(): DoublyNode|null
+    {
+        return $this->next;
+    }
+
     public function __toString(): string
     {
-        return '[' . (string) $this->label . '] <--> ' ;
+        return '[' . (string) $this->label . '] <--> ';
     }
 }

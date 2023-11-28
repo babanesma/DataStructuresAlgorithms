@@ -6,19 +6,7 @@ use OutOfRangeException;
 
 class Stack
 {
-    /**
-     * Stack Items
-     *
-     * @var array
-     */
-    protected $items;
-
-    /**
-     * Queue Size
-     *
-     * @var int
-     */
-    protected $size;
+    protected int $size;
 
     /**
      * Create an instance of the stack
@@ -26,10 +14,8 @@ class Stack
      *
      * @param array $items
      */
-    public function __construct(array $items = [])
+    public function __construct(protected array $items = [])
     {
-        $this->items = $items;
-
         $this->size = count($items);
     }
 

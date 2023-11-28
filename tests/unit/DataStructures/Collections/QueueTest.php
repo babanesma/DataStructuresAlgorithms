@@ -10,7 +10,7 @@ class QueueTest extends TestCase
 {
     public function testConstructor()
     {
-        $qu = new Queue(1);
+        $qu = new Queue([1, 2, 3]);
 
         $this->assertEquals(1, $qu->peek());
     }
