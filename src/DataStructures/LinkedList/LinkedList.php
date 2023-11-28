@@ -6,24 +6,9 @@ use OutOfRangeException;
 
 class LinkedList
 {
-    /**
-     * Head Node
-     *
-     * @var Node
-     */
-    protected $head;
-
-    /**
-     * Tail Node
-     *
-     * @var Node
-     */
-    protected $tail;
-
-    /**
-     * @var int
-     */
-    protected $size;
+    protected Node|null $head;
+    protected Node|null $tail;
+    protected int $size;
 
     public function __construct()
     {

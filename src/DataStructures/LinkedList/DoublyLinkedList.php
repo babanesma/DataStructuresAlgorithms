@@ -6,24 +6,9 @@ use OutOfRangeException;
 
 class DoublyLinkedList
 {
-    /**
-     * Head Node
-     *
-     * @var DoublyNode
-     */
-    protected $head;
-
-    /**
-     * Tail Node
-     *
-     * @var DoublyNode
-     */
-    protected $tail;
-
-    /**
-     * @var int
-     */
-    protected $size;
+    protected DoublyNode|null $head;
+    protected DoublyNode|null $tail;
+    protected int $size;
 
     public function __construct()
     {
@@ -82,7 +67,7 @@ class DoublyLinkedList
         if ($index > $this->size()) {
             throw new OutOfRangeException('$index is greater than list size');
         }
-        
+
         // add head
         if ($index == 0) {
             $this->addFirst($node);
@@ -107,14 +92,14 @@ class DoublyLinkedList
         }
 
         $prev->setNext($node);
-        
+
         $node->setNext($current);
         $node->setPrev($prev);
 
         $this->size++;
     }
 
-    public function removeAt($index): void
+    public function removeAt(int $index): void
     {
         if ($index < 0) {
             throw new OutOfRangeException('$index should be greater than or equal 0');
@@ -158,7 +143,7 @@ class DoublyLinkedList
         $this->size--;
     }
 
-    public function reverse()
+    public function reverse(): self
     {
         $prev = null;
         $current = $this->head;
@@ -173,19 +158,20 @@ class DoublyLinkedList
         }
 
         $this->head = $prev;
+        return $this;
     }
 
-    public function getHead(): ?Node
+    public function getHead(): ?DoublyNode
     {
         return $this->head;
     }
 
-    public function getTail(): ?Node
+    public function getTail(): ?DoublyNode
     {
         return $this->tail;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $listString = '';
 

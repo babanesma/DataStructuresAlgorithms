@@ -26,15 +26,9 @@ use OutOfRangeException;
  */
 class Counter
 {
-    /**
-     * @var array
-     */
-    protected $objects;
+    protected array $objects;
 
-    /**
-     * @var array
-     */
-    protected $objectsCounter;
+    protected array $objectsCounter;
 
     /**
      * Creates an instance of counter map

@@ -6,20 +6,7 @@ use OutOfRangeException;
 
 class Queue
 {
-
-    /**
-     * Items
-     *
-     * @var array
-     */
-    protected $items;
-
-    /**
-     * Queue Size
-     *
-     * @var int
-     */
-    protected $size;
+    protected int $size;
 
     /**
      * Create an instance of the queue
@@ -27,11 +14,8 @@ class Queue
      *
      * @param array $items
      */
-    public function __construct($items = [])
+    public function __construct(protected array $items = [])
     {
-        if (!is_array($items)) {
-            $items = [$items];
-        }
         $this->items = $items;
 
         $this->size = count($items);

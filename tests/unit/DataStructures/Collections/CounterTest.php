@@ -8,16 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class CounterTest extends TestCase
 {
-    public function integersDataProvider()
+    public static function integersDataProvider()
     {
         $integersFixtures = require_once(__DIR__ . '/fixtures/counter/integers.php');
         $stringsFixtures = require_once(__DIR__ . '/fixtures/counter/strings.php');
         $objectsFixtures = require_once(__DIR__ . '/fixtures/counter/objects.php');
 
         return [
-            [$integersFixtures['insertData'], $integersFixtures['removeData'], $integersFixtures['objects'], $integersFixtures['expectations']],
-            [$stringsFixtures['insertData'], $stringsFixtures['removeData'], $stringsFixtures['objects'], $stringsFixtures['expectations']],
-            [$objectsFixtures['insertData'], $objectsFixtures['removeData'], $objectsFixtures['objects'], $objectsFixtures['expectations']],
+            $integersFixtures,
+            $stringsFixtures,
+            $objectsFixtures,
         ];
     }
 
@@ -48,7 +48,7 @@ class CounterTest extends TestCase
     public function testRemoveThrowsException()
     {
         $this->expectException(OutOfRangeException::class);
-        $this->expectDeprecationMessage('$element not found');
+        $this->expectExceptionMessage('$element not found');
         $counter = new Counter();
         $counter->add(1);
 

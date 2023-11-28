@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class DoublyLinkedListTest extends TestCase
 {
-
     public function testConstruct()
     {
         $dll = new DoublyLinkedList();
@@ -17,7 +16,7 @@ class DoublyLinkedListTest extends TestCase
         $this->assertEquals(null, $dll->getTail());
     }
 
-    public function provideSimpleDoublyLinkedList()
+    public static function provideSimpleDoublyLinkedList()
     {
         $dll = new DoublyLinkedList();
 
